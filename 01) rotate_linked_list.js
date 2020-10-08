@@ -19,30 +19,30 @@ function ListNode(val, next) {
  this.next = (next===undefined ? null : next)
 }
 
-const head = new ListNode(1); // <-- Head
+const node1 = new ListNode(1); // <-- Head
 const node2 = new ListNode(2);
 const node3 = new ListNode(3);
 const node4 = new ListNode(4);
-const tail = new ListNode(5);
-head.next = node2;
+const node5 = new ListNode(5);
+node1.next = node2;
 node2.next = node3;
 node3.next = node4;
-node4.next = tail;
+node4.next = node5;
 
 
 var rotateRight = function(head, k) {
 let l = 1; // <-- Länge
-let next = head;
-while(next.next != null) { // <-- Länge berechnen
+let tail = head;
+while(tail.next != null) { // <-- Länge berechnen
   l++;
-  next = next.next;
+  tail = tail.next;
 } // <-- Länge berechnen fertig
 
 
 
 let j = l-k; // <-- Neuer Tail
-next.next = head;
-let newTail = next;
+tail.next = head;
+let newTail = tail;
 while(j-- > 0) {
   newTail = newTail.next
 }
@@ -53,4 +53,4 @@ return newHead;
 };
 
 
-rotateRight(head, 2);
+rotateRight(node1, 2);
